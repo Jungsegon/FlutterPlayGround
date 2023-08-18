@@ -37,7 +37,11 @@ class _TopPart extends StatefulWidget {
 }
 
 class _TopPartState extends State<_TopPart> {
-  DateTime selectedDate = DateTime.now(); // 기본값 = 현재날짜
+  DateTime selectedDate = DateTime(
+    DateTime.now().year,
+    DateTime.now().month,
+    DateTime.now().day,
+  ); // 기본값 = 현재날짜
 
 
   @override
