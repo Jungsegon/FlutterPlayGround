@@ -37,6 +37,7 @@ class _TopPart extends StatefulWidget {
 }
 
 class _TopPartState extends State<_TopPart> {
+
   DateTime selectedDate = DateTime(
     DateTime.now().year,
     DateTime.now().month,
@@ -46,6 +47,8 @@ class _TopPartState extends State<_TopPart> {
 
   @override
   Widget build(BuildContext context) {
+    final theme =Theme.of(context); //테마를 가져올수 있다.
+    final textTheme = theme.textTheme;
     final now =DateTime(
       DateTime.now().year,
       DateTime.now().month,
@@ -58,29 +61,17 @@ class _TopPartState extends State<_TopPart> {
         children: [
           Text(
             'U&I',
-            style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'parisienne',
-                fontSize: 80// 등록한 글꼴을 바꿀 때 사용
-            ),
+            style: textTheme.headline1,
           ),
           Column(
             children: [
               Text(
                 '우리 처음 만난날',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'sunflower',
-                    fontSize: 30
-                ),
+                style: textTheme.bodyText1,
               ),
               Text(
                 '${selectedDate.year}-${selectedDate.month}-${selectedDate.day}',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'sunflower',
-                    fontSize: 20
-                ),
+                style: textTheme.bodyText2,
               ),
             ],
           ),
@@ -131,12 +122,7 @@ class _TopPartState extends State<_TopPart> {
                   now.day,
                 ).difference(selectedDate).inDays+1
             }',
-            style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'sunflower',
-                fontSize: 50,
-                fontWeight: FontWeight.w700 // 폰트 두께를 설정
-            ),
+            style: textTheme.headline2,
           ),
         ],
       ),
